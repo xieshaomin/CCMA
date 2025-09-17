@@ -81,8 +81,10 @@ python test.py --config_file 'path/to/model_dir/configs.yaml'
 | DM-Adapter | G  | AAAI25  | 72.17          | 92.85           | 64.33          | 62.64          | 85.32           | 36.50          | 60.00        | 87.90         | 47.37        |
 | CCMA (Ours) | G    | -       | **74.03**      | **93.68**       | 66.44          | **63.76**      | 86.00           | 38.30          | **60.80**    | **89.00**     | 47.90        |
 
-[Model & log for CUHK-PEDES](https://drive.google.com/file/d/1jTubHy5420VITUStPXr0P0uQDK93Gf09/view)
-[Model & log for ICFG-PEDES](https://drive.google.com/file/d/1K43tbLqu_yAxeNBKAqoTcuug3meubxfx/view?usp=sharing)
-[Model & log for RSTPReid](https://drive.google.com/file/d/1UWbRqA0G0ubtzhyHvzP11jbDpXtCg_Fp/view?usp=sharing)
+
+- [Model & Log for CUHK-PEDES](https://drive.google.com/file/d/1jTubHy5420VITUStPXr0P0uQDK93Gf09/view)  
+- [Model & Log for ICFG-PEDES](https://drive.google.com/file/d/1K43tbLqu_yAxeNBKAqoTcuug3meubxfx/view?usp=sharing)  
+- [Model & Log for RSTPReid](https://drive.google.com/file/d/1UWbRqA0G0ubtzhyHvzP11jbDpXtCg_Fp/view?usp=sharing)  
+
 
 
