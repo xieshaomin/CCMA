@@ -8,7 +8,7 @@ We tackle two major challenges in text-based person retrieval—Cross-modal Misa
 
 ## Abstrct
 Text-based person retrieval aims to search for target images from large-scale datasets using textual descriptions.  However, the imbalance of multimodal data often makes the image modality more complex, containing background redundancy and multi-target interference, which leads to Cross-modal Misalignment Bias (CMB).  Moreover, most existing methods implicitly assume a one-to-one mapping between images and texts, neglecting the prevalent overlap of textual descriptions, thus causing Intra-modal Semantic Overlap (ISO). To address these challenges, we propose a CCMA framework.  Specifically, we design a Differential Attentionmechanism that explicitly suppresses irrelevant or noisy features and focuses on semantically relevant regions, thereby enhancing local feature discriminability and cross-modal consistency to alleviate CMB.  In addition, we introduce an Integrated Modal Alignment Loss (IMAL) that regularizes intra-modal neighborhood structures to improve feature compactness and semantic consistency, effectively mitigating ISO.  Extensive experiments on three public datasets demonstrate the effectiveness of our method, achieving state-of-the-art performance, including gains of 0.91% in Rank-1, 0.42% in mAP, and 0.54% in mINP on CUHK-PEDES.
-
+![](images/architecture.png)
 ## Usage
 ### Requirements
 we use single RTX3090 24G GPU for training and evaluation. 
