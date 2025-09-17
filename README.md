@@ -65,7 +65,7 @@ python test.py --config_file 'path/to/model_dir/configs.yaml'
 ```
 
 ## IRRA on Text-to-Image Person Retrieval Results
-#### CUHK-PEDES dataset
+#### Comparison of different methods on CUHK-PEDES, ICFG-PEDES, and RSTPReid datasets.
 | Method      | Type | Ref     | CUHK-PEDES R@1 | CUHK-PEDES R@10 | CUHK-PEDES mAP | ICFG-PEDES R@1 | ICFG-PEDES R@10 | ICFG-PEDES mAP | RSTPReid R@1 | RSTPReid R@10 | RSTPReid mAP |
 |-------------|------|---------|----------------|-----------------|----------------|----------------|-----------------|----------------|--------------|---------------|--------------|
 | IRRA  | G    | CVPR23  | 73.11          | 93.58           | 66.02          | 63.46          | 85.82           | 38.06          | 60.20        | 88.20         | 47.17        |
