@@ -1,5 +1,5 @@
 # CCMA:Consistency-Driven Cross-Modal Alignment for Text-to-Image Person Re-Identification
-[![GitHub](https://img.shields.io/badge/license-MIT-green)](https://github.com/anosorae/IRRA/blob/main/LICENSE) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/cross-modal-implicit-relation-reasoning-and/nlp-based-person-retrival-on-cuhk-pedes)](https://paperswithcode.com/sota/nlp-based-person-retrival-on-cuhk-pedes?p=cross-modal-implicit-relation-reasoning-and)
+[![GitHub](https://img.shields.io/badge/license-MIT-green)](https://github.com/anosorae/CCMA/blob/main/LICENSE) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/cross-modal-implicit-relation-reasoning-and/nlp-based-person-retrival-on-cuhk-pedes)](https://paperswithcode.com/sota/nlp-based-person-retrival-on-cuhk-pedes?p=cross-modal-implicit-relation-reasoning-and)
 
 
 
@@ -64,7 +64,7 @@ python train.py \
 python test.py --config_file 'path/to/model_dir/configs.yaml'
 ```
 
-## IRRA on Text-to-Image Person Retrieval Results
+## CCMA on Text-to-Image Person Retrieval Results
 #### Comparison of different methods on CUHK-PEDES, ICFG-PEDES, and RSTPReid datasets.
 | Method      | Type | Ref     | CUHK-PEDES R@1 | CUHK-PEDES R@10 | CUHK-PEDES mAP | ICFG-PEDES R@1 | ICFG-PEDES R@10 | ICFG-PEDES mAP | RSTPReid R@1 | RSTPReid R@10 | RSTPReid mAP |
 |-------------|------|---------|----------------|-----------------|----------------|----------------|-----------------|----------------|--------------|---------------|--------------|
