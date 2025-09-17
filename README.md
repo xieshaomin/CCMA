@@ -1,20 +1,13 @@
-# Cross-Modal Implicit Relation Reasoning and Aligning for Text-to-Image Person Retrieval
+# CCMA:Consistency-Driven Cross-Modal Alignment for Text-to-Image Person Re-Identification
 [![GitHub](https://img.shields.io/badge/license-MIT-green)](https://github.com/anosorae/IRRA/blob/main/LICENSE) [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/cross-modal-implicit-relation-reasoning-and/nlp-based-person-retrival-on-cuhk-pedes)](https://paperswithcode.com/sota/nlp-based-person-retrival-on-cuhk-pedes?p=cross-modal-implicit-relation-reasoning-and)
 
-Official PyTorch implementation of the paper Cross-Modal Implicit Relation Reasoning and Aligning for Text-to-Image Person Retrieval. (CVPR 2023) [arXiv](https://arxiv.org/abs/2303.12501)
 
-## Updates
-- (3/23/2023) Add arXiv link for our paper.
-- (3/18/2023) Add download links of trained models and logs.
-- (3/17/2023) Ensure the reproducibility of our code.
-- (3/13/2023) Code released!
 
 ## Highlights
+We tackle two major challenges in text-based person retrieval—Cross-modal Misalignment Bias (CMB) and Intra-modal Semantic Overlap (ISO). To this end, we design a Differential Attention mechanism that suppresses irrelevant features by subtracting cross-modal attention maps, and propose an Integrated Modal Alignment Loss (IMAL) that unifies cross-modal alignment and intra-modal consistency. Extensive experiments on three benchmarks demonstrate that our framework achieves state-of-the-art performance with consistent improvements in retrieval accuracy and robustness.
 
-The goal of this work is to enhance global text-to-image person retrieval performance, without requiring any additional supervision and inference cost. To achieve this, we utilize the full CLIP model as our feature extraction backbone. Additionally, we propose a novel cross-modal matching loss (SDM) and an Implicit Relation Reasoning module to mine fine-grained image-text relationships, enabling IRRA to learn more discriminative global image-text representations.
-
-![](images/architecture.png)
-
+## Abstrct
+Text-based person retrieval aims to search for target images from large-scale datasets using textual descriptions.  However, the imbalance of multimodal data often makes the image modality more complex, containing background redundancy and multi-target interference, which leads to Cross-modal Misalignment Bias (CMB).  Moreover, most existing methods implicitly assume a one-to-one mapping between images and texts, neglecting the prevalent overlap of textual descriptions, thus causing Intra-modal Semantic Overlap (ISO). To address these challenges, we propose a CCMA framework.  Specifically, we design a Differential Attentionmechanism that explicitly suppresses irrelevant or noisy features and focuses on semantically relevant regions, thereby enhancing local feature discriminability and cross-modal consistency to alleviate CMB.  In addition, we introduce an Integrated Modal Alignment Loss (IMAL) that regularizes intra-modal neighborhood structures to improve feature compactness and semantic consistency, effectively mitigating ISO.  Extensive experiments on three public datasets demonstrate the effectiveness of our method, achieving state-of-the-art performance, including gains of 0.91% in Rank-1, 0.42% in mAP, and 0.54% in mINP on CUHK-PEDES.
 
 ## Usage
 ### Requirements
@@ -73,63 +66,25 @@ python test.py --config_file 'path/to/model_dir/configs.yaml'
 
 ## IRRA on Text-to-Image Person Retrieval Results
 #### CUHK-PEDES dataset
+| Method      | Type | Ref     | CUHK-PEDES R@1 | CUHK-PEDES R@10 | CUHK-PEDES mAP | ICFG-PEDES R@1 | ICFG-PEDES R@10 | ICFG-PEDES mAP | RSTPReid R@1 | RSTPReid R@10 | RSTPReid mAP |
+|-------------|------|---------|----------------|-----------------|----------------|----------------|-----------------|----------------|--------------|---------------|--------------|
+| IRRA  | G    | CVPR23  | 73.11          | 93.58           | 66.02          | 63.46          | 85.82           | 38.06          | 60.20        | 88.20         | 47.17        |
+| VGSG   | G    | TIP23   | 71.38          | 91.86           | 67.91          | 63.05          | 84.36           | -              | -            | -             | -            |
+| EESSO | L    | IVC24   | 69.57          | 90.71           | -              | 60.84          | 83.53           | -              | 53.15        | 83.55         | -            |
+| CFAM | L    | CVPR24  | 73.67          | 93.57           | 65.94          | 63.57          | **86.32**       | 38.34          | 60.51        | 89.71         | 47.64        |
+| MACF | L    | IJCV24  | 73.33          | 93.02           | -              | 62.95          | 85.04           | -              | -            | -             | -            |
+| CSKT | L    | ICASSP24| 69.70          | 91.80           | 62.74          | 58.90          | 83.56           | 33.87          | 57.75        | 88.35         | 46.43        |
+| SAMC | G    | TIFS24  | 74.00   | 93.31           | **68.42**      | 63.68          | 85.21           | 42.21          | 60.80        | 89.00         | **49.67**    |
+| LERF | L    | PR25    | 65.84          | 90.22           | -              | 57.23          | 83.11           | -              | 46.75        | 81.60         | -            |
+| MMRef | G    | TMM25   | 72.25          | 92.61           | -              | 63.50          | 83.73           | -              | 56.20        | 85.80         | -            |
+| VFE-TPS (19)| L    | KBS25   | 72.47          | 93.24           | 64.26          | 62.71          | 84.51           | **43.08**      | 59.25        | 88.85         | 45.96        |
+| DM-Adapter | G  | AAAI25  | 72.17          | 92.85           | 64.33          | 62.64          | 85.32           | 36.50          | 60.00        | 87.90         | 47.37        |
+| CCMA (Ours) | G    | -       | **74.03**      | **93.68**       | 66.44          | **63.76**      | 86.00           | 38.30          | **60.80**    | **89.00**     | 47.90        |
 
-|     Method      |     Backbone     |  Rank-1   |  Rank-5   |  Rank-10  |    mAP    |   mINP    |
-| :-------------: | :--------------: | :-------: | :-------: | :-------: | :-------: | :-------: |
-|     CMPM/C      |    RN50/LSTM     |   49.37   |     -     |   79.27   |     -     |     -     |
-|      DSSL       |    RN50/BERT     |   59.98   |   80.41   |   87.56   |     -     |     -     |
-|      SSAN       |    RN50/LSTM     |   61.37   |   80.15   |   86.73   |     -     |     -     |
-|   Han et al.    |  RN101/Xformer   |   64.08   |   81.73   |   88.19   |   60.08   |     -     |
-|      LGUR       | DeiT-Small/BERT  |   65.25   |   83.12   |   89.00   |     -     |     -     |
-|       IVT       |  ViT-B-16/BERT   |   65.59   |   83.11   |   89.21   |     -     |     -     |
-|      CFine      |  ViT-B-16/BERT   |   69.57   |   85.93   |   91.15   |     -     |     -     |
-|    **CLIP**     | ViT-B-16/Xformer |   68.19   |   86.47   |   91.47   |   61.12   |   44.86   |
-| **IRRA (ours)** | ViT-B-16/Xformer | **73.38** | **89.93** | **93.71** | **66.13** | **50.24** |
-
-[Model & log for CUHK-PEDES](https://drive.google.com/file/d/1OBhFhpZpltRMZ88K6ceNUv4vZgevsFCW/view?usp=share_link)
-
-#### ICFG-PEDES dataset
-
-|     Method      |  Rank-1   |  Rank-5   |  Rank-10  |    mAP    |   mINP   |
-| :-------------: | :-------: | :-------: | :-------: | :-------: | :------: |
-|     CMPM/C      |   43.51   |   65.44   |   74.26   |     -     |    -     |
-|      SSAN       |   54.23   |   72.63   |   79.53   |     -     |    -     |
-|       IVT       |   56.04   |   73.60   |   80.22   |     -     |    -     |
-|      CFine      |   60.83   |   76.55   |   82.42   |     -     |    -     |
-|    **CLIP**     |   56.74   |   75.72   |   82.26   |   31.84   |   5.03   |
-| **IRRA (ours)** | **63.46** | **80.24** | **85.82** | **38.05** | **7.92** |
-
-[Model & log for ICFG-PEDES](https://drive.google.com/file/d/1Y3D7zZsKPpuEHWJ9nVecUW-HaKdjDI9g/view?usp=share_link)
-
-#### RSTPReid dataset
-
-|     Method      |  Rank-1   |  Rank-5   |  Rank-10  |    mAP    |   mINP    |
-| :-------------: | :-------: | :-------: | :-------: | :-------: | :-------: |
-|      DSSL       |   39.05   |   62.60   |   73.95   |     -     |     -     |
-|      SSAN       |   43.50   |   67.80   |   77.15   |     -     |     -     |
-|       IVT       |   46.70   |   70.00   |   78.80   |     -     |     -     |
-|      CFine      |   50.55   |   72.50   |   81.60   |     -     |     -     |
-|    **CLIP**     |   54.05   |   80.70   |   88.00   |   43.41   |   22.31   |
-| **IRRA (ours)** | **60.20** | **81.30** | **88.20** | **47.17** | **25.28** |
-
-[Model & log for RSTPReid](https://drive.google.com/file/d/1LpUHkLErEWkJiXyWYxWwiK-8Fz1_1QGY/view?usp=share_link)
-
+[Model & log for CUHK-PEDES](https://drive.google.com/file/d/1jTubHy5420VITUStPXr0P0uQDK93Gf09/view)
+[Model & log for ICFG-PEDES](https://drive.google.com/file/d/1jTubHy5420VITUStPXr0P0uQDK93Gf09/view)
+[Model & log for RSTPReid](https://drive.google.com/file/d/1jTubHy5420VITUStPXr0P0uQDK93Gf09/view)
 
 ## Acknowledgments
 Some components of this code implementation are adopted from [CLIP](https://github.com/openai/CLIP), [TextReID](https://github.com/BrandonHanx/TextReID) and [TransReID](https://github.com/damo-cv/TransReID). We sincerely appreciate for their contributions.
 
-
-## Citation
-If you find this code useful for your research, please cite our paper.
-
-```tex
-@inproceedings{cvpr23crossmodal,
-  title={Cross-Modal Implicit Relation Reasoning and Aligning for Text-to-Image Person Retrieval},
-  author={Jiang, Ding and Ye, Mang},
-  booktitle={IEEE International Conference on Computer Vision and Pattern Recognition (CVPR)},
-  year={2023},
-}
-```
-
-## Contact
-If you have any question, please feel free to contact us. E-mail: [jiangding@whu.edu.cn](mailto:jiangding@whu.edu.cn), [yemang@whu.edu.cn](mailto:yemang@whu.edu.cn).
