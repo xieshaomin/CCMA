@@ -82,7 +82,7 @@ python test.py --config_file 'path/to/model_dir/configs.yaml'
 | CCMA (Ours) | G    | -       | **74.03**      | **93.68**       | 66.44          | **63.76**      | 86.00           | 38.30          | **60.80**    | **89.00**     | 47.90        |
 
 [Model & log for CUHK-PEDES](https://drive.google.com/file/d/1jTubHy5420VITUStPXr0P0uQDK93Gf09/view)
-[Model & log for ICFG-PEDES](https://drive.google.com/file/d/1jTubHy5420VITUStPXr0P0uQDK93Gf09/view)
-[Model & log for RSTPReid](https://drive.google.com/file/d/1jTubHy5420VITUStPXr0P0uQDK93Gf09/view)
+[Model & log for ICFG-PEDES](https://drive.google.com/file/d/1K43tbLqu_yAxeNBKAqoTcuug3meubxfx/view?usp=sharing)
+[Model & log for RSTPReid](https://drive.google.com/file/d/1UWbRqA0G0ubtzhyHvzP11jbDpXtCg_Fp/view?usp=sharing)
 
 
