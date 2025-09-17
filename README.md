@@ -85,6 +85,4 @@ python test.py --config_file 'path/to/model_dir/configs.yaml'
 [Model & log for ICFG-PEDES](https://drive.google.com/file/d/1jTubHy5420VITUStPXr0P0uQDK93Gf09/view)
 [Model & log for RSTPReid](https://drive.google.com/file/d/1jTubHy5420VITUStPXr0P0uQDK93Gf09/view)
 
-## Acknowledgments
-Some components of this code implementation are adopted from [CLIP](https://github.com/openai/CLIP), [TextReID](https://github.com/BrandonHanx/TextReID) and [TransReID](https://github.com/damo-cv/TransReID). We sincerely appreciate for their contributions.
 
